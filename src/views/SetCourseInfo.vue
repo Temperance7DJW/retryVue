@@ -1,5 +1,5 @@
 <template>
-        <el-row>
+         <!--<el-row>
             <el-col :offset="4" :span="6">
                 <el-form :model="teacher" ref="teacher" label-width="100px">
                     <el-form-item label="教师名">
@@ -43,6 +43,7 @@
                 </el-form>
             </el-col>
             <el-col :span="8" :offset="2">
+            <el-col :offset="4" :span="16">
                 <el-table
                         :data="tableStudents.slice((currentPage-1)*pageSize,currentPage*pageSize)"
                         border
@@ -80,8 +81,60 @@
                             @current-change="currentChange">
                     </el-pagination>
                 </div>
+            </el-col>--> 
+            <el-col :offset="4" :span="16">
+                <el-table
+                    :data="tableStudents.slice((currentPage-1)*pageSize,currentPage*pageSize)"
+                    stripe
+                    style="width:100%">
+                    <el-table-column
+                        prop="name"
+                        label="姓名">
+                    </el-table-column>
+                    <el-table-column
+                        prop="schoolNumber"
+                        label="学号">
+                    </el-table-column>
+                    <el-table-column
+                        prop="score"
+                        label="分数">
+                    </el-table-column>
+                    <el-table-column
+                        label="操作">
+                        <template slot-scope="scope">
+                             <el-button @click="handleEdit(scope.row)" type="text" size="small">编辑</el-button>
+                             <el-button @click="handleRemove(scope.row)" type="text" size="small">删除</el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+                <div>
+                    <el-pagination
+                            layout="prev, pager, next"
+                            :total="tableStudents.length"
+                            @current-change="currentChange">
+                    </el-pagination>
+                </div>
+                <h1 >手动添加</h1>
+                <el-divider class="divider"></el-divider>
+                <el-form :inline="true" class="demo-form-inline" :model="student" ref="student">
+                    <el-form-item label="姓名" prop="student_name">
+                        <el-input v-model="student.name"></el-input>
+                    </el-form-item>
+                    <el-form-item v-if="addStudent" label="学号" prop="school_number">
+                        <el-input v-model="student.schoolNumber"></el-input>
+                    </el-form-item>
+                    <el-form-item label="成绩" prop="score">
+                        <el-input v-model="student.score"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button v-if="addStudent" type="primary" :disabled="submitdisable" @click="doAddStudent">添加</el-button>
+                        <el-button v-else type="primary" :disabled="submitdisable" @click="returnAdd">返回添加</el-button>
+                    </el-form-item>
+                </el-form>
+                <el-divider class="divider"></el-divider>
+                <el-button type="primary" :disabled="submitdisable" @click="handleSubmit()">确认上传</el-button>
             </el-col>
-        </el-row>
+            
 </template>
 
 <script>
@@ -141,10 +194,10 @@
             },
             //向后端提交数据json
             handleSubmit(){
-                if (this.excelFile.course.weight == undefined) {
+                /*if (this.excelFile.course.weight == undefined) {
                     this.$message('请设置权重');
                     return
-                }
+                }*/
 
                 this.nextActive();
                 this.$message('正在提交数据');
@@ -200,5 +253,7 @@
 </script>
 
 <style scoped>
-
+.divider{
+    margin-top: 0;
+}
 </style>

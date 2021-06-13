@@ -1,8 +1,10 @@
 <template>
     <el-container>
+        <!--
         <el-upload 
             class="upload-demo" 
-            :on-change="(event)=>{preSubmit(event)}" 
+            list-type="file"
+            :on-change="preSubmit" 
             drag 
             multiple 
             action="https://jsonplaceholder.typicode.com/posts/" 
@@ -12,7 +14,7 @@
             <div class="el-upload__tip" slot="tip">只能上传xlsx文件</div>
         </el-upload>
         <el-button type="primary" :disabled="submitdisable" @click="handleSubmit()">确认上传</el-button>
-
+        -->
         <el-row>
             <el-col style="margin-bottom: 5%">
                 <input type="file" @change="preSubmit">
