@@ -7,7 +7,7 @@ import Login from "@/views/Login";
 import ListStudents from "@/views/ListStudents";
 import ListTeachers from "@/views/ListTeachers";
 import ListCourses from "@/views/ListCourses";
-import StartChoose from "@/views/StartChoose";
+//import StartChoose from "@/views/StartChoose";
 import ResetPassword from "@/views/ResetPassword";
 
 Vue.use(VueRouter)
@@ -15,12 +15,12 @@ Vue.use(VueRouter)
 export default new VueRouter({
     routes:[
         {
-            path:'/ChooseTeacher',
+            path:'/ChooseTeacher',//1
             name:ChooseTeacher,
             component: ChooseTeacher
         },
         {
-            path:'/ImportStudent',
+            path:'/ImportStudent',//2
             name:ImportStudent,
             component: ImportStudent
         },
@@ -30,7 +30,7 @@ export default new VueRouter({
             component: ViewChoosed
         },
         {
-            path:'/Login',
+            path:'/Login',//3
             name:Login,
             component: Login
         },
@@ -48,14 +48,14 @@ export default new VueRouter({
             path:'/ListCourses',
             name: ListCourses,
             component: ListCourses
-        },
+        },/*
         {
             path:'/StartChoose',
             component: StartChoose,
             name: StartChoose
-        },
+        },*/
         {
-            path:'/ResetPassword',
+            path:'/ResetPassword',//4
             component:ResetPassword,
             name: ResetPassword
         },

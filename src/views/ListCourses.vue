@@ -17,8 +17,8 @@
                         width="120">
                 </el-table-column>
                 <el-table-column
-                        prop="score"
-                        label="分数"
+                        prop="class"
+                        label="班级"
                         width="120">
                 </el-table-column>
                 <el-table-column
@@ -98,8 +98,8 @@
                 <el-form-item label="姓名">
                     <el-input :disabled="!addStudent" v-model="student.name"></el-input>
                 </el-form-item>
-                <el-form-item label="成绩">
-                    <el-input v-model="student.score"></el-input>
+                <el-form-item label="班级">
+                    <el-input v-model="student.class"></el-input>
                 </el-form-item>
                 <el-form-item v-if="addStudent" label="学号" prop="school_number">
                     <el-input v-model="student.schoolNumber"></el-input>

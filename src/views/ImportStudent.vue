@@ -8,12 +8,6 @@
                             <el-step title="确认数据信息" icon="el-icon-edit"></el-step>
                             <el-step title="导入成功" icon="el-icon-circle-check"></el-step>
                         </el-steps>
-                        <!--
-                        <el-steps :active="active" align-center>
-                            <el-step title="步骤1" description="上传学生excel文件"></el-step>
-                            <el-step title="步骤2" description="确认数据信息"></el-step>
-                            <el-step title="步骤3" description="导入成功"></el-step>
-                        </el-steps>-->
                     </el-col>
                 </el-row>
             </el-header>
@@ -26,7 +20,6 @@
                         <set-course-info :nextActive="next" :getExcelFile="getExcelFile"></set-course-info>
                     </el-col>
                     <el-col v-else-if="active==3" style="text-align: center">
-                        <h1>SUCCESS</h1>
                     </el-col>
                 </el-row>
             </el-main>
